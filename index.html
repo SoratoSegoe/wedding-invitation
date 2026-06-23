@@ -56,7 +56,7 @@
             object-fit: cover;
             z-index: 1;
         }
-        /* 写真の上に薄いオーバーレイを重ねて文字の視認性をアップ */
+        /* 写真の上に薄いスモークを重ねて文字を見やすく */
         .hero::after {
             content: '';
             position: absolute;
@@ -64,7 +64,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.2);
+            background: rgba(0, 0, 0, 0.25);
             z-index: 2;
         }
         .hero-title {
@@ -99,7 +99,7 @@
             font-size: 1.4rem;
             font-weight: 500;
             letter-spacing: 0.15em;
-            color: #8f7959;
+            color: #a68f6d; /* 洗練されたアンティークゴールド */
             margin-bottom: 30px;
             position: relative;
         }
@@ -108,7 +108,7 @@
             display: block;
             width: 30px;
             height: 1px;
-            background-color: #8f7959;
+            background-color: #a68f6d;
             margin: 12px auto 0;
         }
 
@@ -129,7 +129,7 @@
             line-height: 2.2;
         }
 
-        /* --- 3. 写真ギャラリー（小写真4枚） --- */
+        /* --- 3. 写真ギャラリー（モノクロ→カラーギミック） --- */
         .gallery-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -143,6 +143,10 @@
             padding-top: 100%; /* 正方形を維持 */
             overflow: hidden;
             border-radius: 2px;
+            background-color: #f0f0f0;
+            cursor: pointer;
+            /* スマホでのタップ時の青いハイライトを消す */
+            -webkit-tap-highlight-color: transparent;
         }
         .gallery-item img {
             position: absolute;
@@ -151,6 +155,17 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
+            /* ★初期状態はモノクロ（白黒） */
+            filter: grayscale(100%);
+            /* 変化のスピード（0.6秒かけて滑らかに変化） */
+            transition: filter 0.6s cubic-bezier(0.25, 1, 0.5, 1), transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+        
+        /* ★PCでのホバー時、およびスマホでのタッチ（長押し・アクティブ）時にカラーになる */
+        .gallery-item:hover img,
+        .gallery-item:active img {
+            filter: grayscale(0%); /* 本来のカラーに戻る */
+            transform: scale(1.05); /* ほんの少し上品にズームイン */
         }
 
         /* --- 4. イベント詳細 --- */
@@ -165,8 +180,8 @@
         .details-label {
             font-size: 0.8rem;
             font-weight: 600;
-            color: #8f7959;
-            border-left: 2px solid #8f7959;
+            color: #a68f6d;
+            border-left: 2px solid #a68f6d;
             padding-left: 8px;
             margin-bottom: 8px;
             letter-spacing: 0.1em;
@@ -187,13 +202,13 @@
             line-height: 1.6;
         }
 
-        /* --- ボタン --- */
+        /* --- ボタン（Google Map） --- */
         .btn-maps {
             display: inline-block;
             margin-top: 15px;
             padding: 10px 24px;
-            border: 1px solid #8f7959;
-            color: #8f7959;
+            border: 1px solid #a68f6d;
+            color: #a68f6d;
             text-decoration: none;
             font-size: 0.8rem;
             letter-spacing: 0.1em;
@@ -201,7 +216,7 @@
             border-radius: 2px;
         }
         .btn-maps:hover {
-            background-color: #8f7959;
+            background-color: #a68f6d;
             color: #ffffff;
         }
 
@@ -240,7 +255,7 @@
         }
         .form-container iframe {
             width: 100%;
-            min-height: 750px;
+            min-height: 850px; /* フォームが途切れないよう少し高さを広げました */
             border: none;
             background: transparent;
         }
@@ -326,7 +341,7 @@
                 <div class="details-value">
                     <span class="highlight nobrk" style="font-size:1rem;">綱町三井倶楽部</span><br>
                     <span class="nobrk">〒108-0073</span> <span class="nobrk">東京都港区三田2-3-7</span><br>
-                    <a href="https://maps.google.com/?q=綱町三井倶楽部" target="_blank" class="btn-maps">Google Mapで見る</a>
+                    <a href="https://www.google.com/maps/search/?api=1&query=綱町三井倶楽部" target="_blank" class="btn-maps">Google Mapで見る</a>
                 </div>
             </div>
             
@@ -360,18 +375,4 @@
 
         <div class="form-container">
             <iframe 
-                src="https://docs.google.com/forms/d/e/1FAIpQLSeI8_4gyf96vUtP6vHJ7vX9cf73k56i963Z9x96t6mHW8_8FQ/viewform?embedded=true" 
-                loading="lazy">
-                読み込み中…
-            </iframe>
-        </div>
-    </section>
-
-    <footer>
-        <p>© 2026 Hayato & Yuki. All Rights Reserved.</p>
-    </footer>
-
-</div>
-
-</body>
-</html>
+                src="
