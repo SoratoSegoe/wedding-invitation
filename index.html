@@ -216,7 +216,7 @@
             color: #ffffff;
         }
 
-        /* --- 5. 出欠案内＆Googleフォーム --- */
+        /* --- 5. 出欠案内＆洗練された回答ボタン --- */
         .attendance-intro {
             font-size: 0.85rem;
             color: #4a4a4a;
@@ -243,19 +243,34 @@
             font-size: 1rem;
         }
         
-        .form-container {
-            position: relative;
-            width: 100%;
-            padding: 0 4px;
-            margin-top: 20px;
-            overflow: hidden;
+        /* ★新設：高級感のある出欠回答ボタン */
+        .btn-attendance {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 16px 50px;
+            background-color: #a68f6d;
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            letter-spacing: 0.15em;
+            border-radius: 2px;
+            box-shadow: 0 4px 15px rgba(166, 143, 109, 0.2);
+            transition: all 0.3s ease;
         }
-        .form-container iframe {
+        .btn-attendance:hover,
+        .btn-attendance:active {
+            background-color: #927c5d;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(166, 143, 109, 0.3);
+        }
+        .btn-sub-text {
             display: block;
-            width: 100%;
-            height: 950px;
-            border: none;
-            background-color: transparent;
+            font-size: 0.75rem;
+            font-weight: 300;
+            letter-spacing: 0.1em;
+            margin-top: 2px;
+            opacity: 0.9;
         }
 
         /* --- フッター --- */
@@ -277,22 +292,4 @@
         <img src="IMG_1.jpeg" alt="Main Visual" class="hero-img">
         <div class="hero-title">
             <h1>WEDDING INVITATION</h1>
-            <p>2026.12.12 TSUNAMACHI MITSUI CLUB</p>
-        </div>
-    </header>
-
-    <section class="greeting">
-        <div class="greeting-text">
-            <p>
-                <span class="nobrk">皆様におかれましては</span>
-                <span class="nobrk">清祥のこととお慶び申し上げます</span>
-            </p>
-            <p>
-                <span class="nobrk">この度 私たちは結婚式を</span>
-                <span class="nobrk">執り行うこととなりました</span>
-            </p>
-            <p>
-                <span class="nobrk">日頃お世話になっております皆様に</span>
-                <span class="nobrk">感謝の気持ちを込めて</span><br>
-                <span class="nobrk">ささやかな宴を催したく存じます</span>
-            </
+            <p>2026
